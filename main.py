@@ -42,6 +42,10 @@ def main():
             if asteroid.collision_check(player):
                 print("Game over!")
                 sys.exit()
+            for bullet in bullets:
+                if asteroid.collision_check(bullet):
+                    asteroid.split(asteroids)
+                    bullet.kill()
 
         pygame.Surface.fill(window, color=(0, 0, 0))
         for item in drawable:
